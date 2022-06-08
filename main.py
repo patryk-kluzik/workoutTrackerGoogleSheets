@@ -5,6 +5,10 @@ import requests
 
 EXERCISE_ENDPOINT = 'https://trackapi.nutritionix.com/v2/natural/exercise'
 
+GENDER = "male"
+WEIGHT_KG = 75
+HEIGHT_CM = 177
+AGE = 23
 
 headers = {
     'x-app-id': os.environ["APP_ID"],
@@ -13,8 +17,13 @@ headers = {
 
 user_input = input("What did you do? ")
 
+
 params = {
-    'query': user_input
+    'query': user_input,
+    'gender': GENDER,
+    'weight_kg': WEIGHT_KG,
+    'height_cm': HEIGHT_CM,
+    'age': AGE,
 }
 
 response = requests.post(url=EXERCISE_ENDPOINT, headers=headers, json=params)
